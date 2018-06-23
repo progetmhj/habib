@@ -1,0 +1,34 @@
+<ion-content class="sign">
+
+  <div class="logo">
+    <ion-icon name="ios-arrow-round-back" navPop></ion-icon>
+    <img src="assets/img/g.png"/>
+    <h3>Recruit</h3>
+    <p>Search your job</p>
+  </div>
+  <div class="appForm" [formGroup]="myForm">
+    <p>Login</p>
+    <ion-list>
+      <ion-item>
+        <ion-icon item-left name="md-mail" id="icon"></ion-icon>
+        <ion-input  type="email" placeholder="Email or UserName" formControlName="input1"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( myForm.get('input1').hasError('required') ) && myForm.get('input1').touched">
+      </ion-item>
+      <div class="err" *ngIf="myForm.get('input1').hasError('required') && myForm.get('input1').touched">
+        <p id="rs">Required Field</p>
+      </div>
+      <ion-item>
+        <ion-icon item-left name="md-lock" id="icon1"></ion-icon>
+        <ion-input type="password" placeholder="Password" formControlName="input2" ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <p text-right (click)=" presentModal('ForgotPasswordPage')">Forget Password ?</p>
+  </div>
+  <button ion-button block color="color1" (click)="goTo('DiscoverWorkPage')"  [disabled]="!myForm.valid"  (click)="getlogin()" >Login</button>
+</ion-content>
+<ion-footer>
+  <button ion-button block color="color6" (click)="goTo('SignUpPage')">Sign Up</button>
+</ion-footer>
+

@@ -1,0 +1,79 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle >
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Discover</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchPopover($event)" >
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="jobList">
+    <ion-row class="tabs">
+      <ion-col col-3 >
+        <p text-left >Order By</p>
+      </ion-col>
+      <ion-col col-3 >
+        <p text-center (click)="selectTab('date')" [ngClass]="{'active':tab=='date'}">Date</p>
+      </ion-col>
+      <ion-col col-3 >
+        <p text-center (click)="selectTab('salary')" [ngClass]="{'active':tab=='salary'}">Salary</p>
+      </ion-col>
+      <ion-col col-3>
+        <p  text-center (click)="selectTab('location')" [ngClass]="{'active':tab=='location'}">Location</p>
+      </ion-col>
+    </ion-row>
+
+    <!-- jobs List -->
+    <ion-row >
+      <ion-col col-12 col-md-6 col-lg-4  col-xl-3 (click)="goTo('DetailsWorkPage')" *ngFor="let item of items">
+
+        <div class="jobContainer">
+          <ion-grid>
+
+            <ion-row>
+              <ion-col col-7>
+                <h5>Graphic Designer Require</h5>
+              </ion-col>
+              <ion-col col-3>
+                <p>3d ago</p>
+              </ion-col>
+              <ion-col col-2 text-right>
+                <ion-icon class="hire-floppy "></ion-icon>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col col-4>
+                <p>Salary <span>3000</span></p>
+              </ion-col>
+              <ion-col col-4>
+                <p text-center>KSA</p>
+              </ion-col>
+              <ion-col col-4>
+                <p text-right>Valid <span>2 months</span></p>
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+
+          <p class="someDetails">
+            PROJECT recruits for large companies in KSA .
+          </p>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="searchFooter">
+  <ion-icon name="ios-funnel" (click)="goTo('SearchWorkPage')"></ion-icon>
+</ion-footer>

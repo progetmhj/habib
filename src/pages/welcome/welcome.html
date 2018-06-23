@@ -1,0 +1,25 @@
+
+<ion-content>
+  <div class="logo">
+    <img src="assets/img/logo7.png"/>
+    <h3>Recruit</h3>
+    <p>Search your job</p>
+  </div>
+
+  <div class="groubBtns"  >
+    <button ion-button block (click)="changeApp('hire')" [ngClass]="{'active':selectApp=='hire'}">
+      <ion-icon name="ios-checkmark-circle-outline" *ngIf="selectApp=='hire'"></ion-icon>
+      I Want To Hire
+    </button>
+    <button ion-button block (click)="changeApp('work')" [ngClass]="{'active':selectApp=='work'}">
+      <ion-icon name="ios-checkmark-circle-outline"  *ngIf="selectApp=='work'" ></ion-icon>
+      I Want To Work
+    </button>
+  </div>
+
+ <button ion-button block color="color1" (click)="goTo('SignInPage')">Join</button>
+</ion-content>
+<ion-footer>
+ <!-- <button ion-button block color="color5" (click)="goTo('SignInPage')">Login</button>-->
+  <button ion-button block color="color7" (click)="goTo('SignUpPage')">Sign Up</button>
+</ion-footer>

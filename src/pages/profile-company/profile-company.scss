@@ -1,0 +1,151 @@
+page-profile-company {
+    .scroll-content{
+        padding:$mainMarg/2;
+        margin-bottom:$mainHeight!important;
+        .postedJobs{
+            padding:$mainMarg*2 0px;
+            width:calc(100% - #{$mainMarg});
+            margin:0px $mainMarg/2;
+            border-bottom:1px solid color($colors,color1);
+            &:last-of-type{
+                border-bottom:none;
+            }
+            h4{
+            padding:0px $mainMarg/2;
+            margin:0px 0px $mainMarg*3/2;
+            @include whiteNormal(15px,1);
+            }
+            .grid{ 
+                padding:0px;
+                .col{
+                    padding:$mainMarg/2;
+                    ion-icon{
+                        font-size:2.8rem;
+                        color: color($colors,color2);
+                        display:block;
+                        max-width:$mainHeight;
+                        width:100%;
+                        text-align:right;
+                    }
+                }
+            }
+            .applied{
+                padding:0px $mainMarg/2;
+                span{
+                    color:color($colors,color1);
+                    font-weight:500;
+                }
+            }
+            .jobContainer{
+                position: relative;
+                .smallMenu{
+                    padding:0px $mainMarg*3;
+                    background-color: color($colors,color2);
+                    width: auto;
+                    display:inline-block;
+                    @include position($mainMarg,$mainMarg,auto,auto);
+                    .item-ios{
+                        background:none;
+                        margin-bottom:0px;
+                        border-bottom:1px solid color($colors,light);
+                        &:last-of-type{
+                            border-bottom:none;
+                        }
+                        min-width:70px;
+                        p{
+                            margin:0px;
+                            color: color($colors,light);
+                            @include whiteNormal(34px,1);
+                            text-align:center;
+                            font-weight:500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.aboutList{
+    padding:$mainMarg;
+    margin-bottom:0px;
+    .item-ios{
+        &.item-block{
+            background:none;
+            padding:$mainMarg;
+            border-bottom:1px solid color($colors,color1);
+            margin-bottom:0px;
+            &:last-of-type{
+                border-bottom:none;
+            }
+            h4{
+                font-weight:500;
+                margin-bottom:$mainMarg;
+                color: color($colors,color2);
+            }
+            &.item1{
+                .grid{
+                    padding:0px;
+                    .col{
+                        padding:0px;
+                        p{
+                            color: color($colors,color2);
+                            @include whiteNormal(30px,2);
+                            max-width:90%;
+                            font-weight:500;
+                            span{
+                                color:color($colors,color1);
+                            }
+                        }
+                    }
+                }
+            }
+            &.item2{
+                p{
+                    white-space:normal;
+                    .icon{
+                        $x:6px;
+                        margin: $mainMarg/2 ;
+                        background:color($colors,color1);
+                        @include borderRadius($x);
+                        min-width:$x;
+                        float:left;
+                    }
+                }
+            }
+            &.item3{
+                p{
+                    color:color($colors,color2);
+                    @include whiteNormal(36px,2);
+                    margin-bottom:$mainMarg;
+                    font-weight:500;
+                    &:last-of-type{
+                        margin-bottom:0px;
+                    }
+                }
+                .icon{
+                    color: color($colors,color1);
+                    font-size:1.8rem;
+                    margin-right:$mainMarg;
+                    float:left;
+
+                }
+            }
+
+        }
+    }
+}
+.addFooter{
+    @extend .searchFooter;
+    .icon{
+        font-weight:bold;
+        font-size:3rem;
+    }
+}
+
+.noFooterMargin{
+    .scroll-content{
+        margin-bottom:0px!important;
+    }
+}
+
+

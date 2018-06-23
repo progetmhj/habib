@@ -1,0 +1,66 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle >
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Save Jobs</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchPopover($event)" >
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <!-- jobs List -->
+    <ion-row class="jobList">
+      <ion-col col-12 col-md-6 col-lg-4  col-xl-3  (click)="goTo('DetailsWorkPage')" *ngFor="let item of items">
+
+        <div class="jobContainer">
+          <ion-grid>
+
+            <ion-row>
+              <ion-col col-7>
+                <h5>Graphic Designer Require</h5>
+              </ion-col>
+              <ion-col col-3>
+                <p>3d ago</p>
+              </ion-col>
+              <ion-col col-2 text-right>
+                <ion-icon name="md-trash" (click)="removeItem(item,$event)"></ion-icon>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col col-4>
+                <p>Salary <span>3000</span></p>
+              </ion-col>
+              <ion-col col-4>
+                <p text-center>USA</p>
+              </ion-col>
+              <ion-col col-4>
+                <p text-right>Valid <span>2 days</span></p>
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+
+          <p class="someDetails">
+            It is a long established fact that a reader will be distracted by the readable.
+          </p>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <div class="noPostedJobs" *ngIf="noItemsOfJobs == true" padding >
+    <ion-icon name="ios-warning-outline"></ion-icon>
+    <p >No Jobs Saved</p>
+  </div>
+</ion-content>

@@ -1,0 +1,100 @@
+page-profile-person {
+    .content-ios{
+        .scroll-content{
+            padding:3px!important;
+        }
+    }
+    .jobDetails{
+        padding:0px $mainMarg;
+        background:none;
+        margin:0px;
+        .list-ios{
+            .item-ios{
+                background:none!important;
+            }
+        }
+    }
+    .contactForm{
+        @extend .appForm;
+        padding:$mainMarg;
+        .list-ios{
+            .item-ios{
+                &.item-block{
+                    background:none;
+                    padding:0px;
+                    .icon{
+                        &[item-left]{
+                            @include borderRadius(34px);
+                            box-shadow: inset 18px 18px 52px 18px rgba(0,0,0,0.1);
+                        }
+                        &[item-right]{
+                            margin:0px $mainMarg/2;
+                            @include centerHeight(34px);
+                            color:color($colors,color3);
+                        }
+                    }
+                    .text-input{
+                        background-color:color($colors,light);
+                        padding:0px $mainMarg/2;
+                        border-radius:$appFormRadius;
+                        &[disabled]{
+                            opacity:1;
+                            background:none;
+                        }
+                    }
+                    img{
+                        &[item-start]{
+                            margin:0px 0px 0px $mainMarg  ;
+                            width:30px;
+                        }
+                    }
+                    &.item-select{
+                        .select-ios{
+                            margin:0px $mainMarg/2;
+                            min-width:$mainHeight;
+                            padding:0px $mainMarg/2;
+                            border-radius:$appFormRadius;
+                            background:color($colors,light);
+                            &.select-disabled{
+                                opacity:1;
+                                background:none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.profileTabBar{
+    background-color: color($colors,light);
+    width:calc(100% - #{$mainMarg}*2);
+    margin:-$mainMarg auto 0px;
+    position: relative;
+    border-radius:$appFormRadius;
+    padding:$mainMarg/2 0px;
+    .segment-ios{
+        .segment-button{
+            border: none;
+            border-right:1px solid color($colors,color1);
+            border-left:1px solid color($colors,color1);
+            color:color($colors,color2);
+            font-weight:600;
+            height:30px;
+            line-height:30px;
+            border-radius:0px;
+            &:first-of-type{
+                border-left:none;
+            }
+            &:last-of-type{
+                border-right:none;
+            }
+            &.segment-activated{
+                color:color($colors,color1);
+                background:none;
+            }
+        }
+    }
+}

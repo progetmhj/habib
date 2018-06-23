@@ -1,0 +1,78 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle >
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>CV Details</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchPopover($event)" >
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item class="avatarItem">
+      <ion-avatar item-left>
+        <img src="assets/img/007.png"/>
+      </ion-avatar>
+        <h4>Habib Jrad</h4>
+        <p>Tunisia</p>
+    </ion-item>
+  </ion-list>
+  <!-- My CV -->
+    <div class="jobDetails"  >
+     <!-- <p>
+        Email :
+        <span>Lelaed@gmail.com</span>
+      </p>-->
+      <!--<p>
+        Phone Number :
+        <span>012201145254</span>
+      </p>-->
+      <p>
+        Graduation :
+        <span>Higher School of Sciences and Technologies of Hammam Sousse</span>
+      </p>
+
+
+      <div *ngFor="let x of items">
+        <p>
+          {{x.header}}
+        </p>
+        <ion-list>
+          <ion-item *ngFor="let y of x.content" >
+            <ion-icon item-left></ion-icon>
+            <p>{{y.item}}</p>
+          </ion-item>
+
+        </ion-list>
+      </div>
+
+
+      <div class="desc">
+        <h5>Other</h5>
+        <p class="parag">
+          It is a long established fact that a reader will be distracted by the readable.
+          It is a long established fact that a reader will be distracted by the readable.
+        </p>
+      </div>
+    </div>
+</ion-content>
+<!--<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button block color="color1">Call</button>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button block color="color2" (click)="callEmailModal()">Send Mail</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>-->

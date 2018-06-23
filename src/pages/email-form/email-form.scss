@@ -1,0 +1,36 @@
+page-email-form {
+    .header-ios {
+        .toolbar-ios {
+            .toolbar-background-ios{
+                background:none;
+            }
+        }
+    }
+    .content-ios{
+        background:rgba(color($colors,color2),.75);
+    }
+    .scroll-content{
+        display:flex;
+        align-items:center;
+        padding:$mainMarg*2!important;
+        .appForm{
+            width:100%;
+            text-align:center;
+            margin-top:-$toolbar-ios-height;
+            h4{
+                @include whiteNormal(30px,1);
+                background-color:color($colors,color3);
+                padding:0px $mainMarg;
+                display:inline-block;
+                margin:0px 0px $mainMarg;
+                min-width:40%;
+                border-radius:$appFormRadius;
+                color: color($colors,light);
+                
+            }
+            .button-ios{
+                margin-top:$mainMarg/2;
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle >
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Setting</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchPopover($event)" >
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+
+  <!--App Notification Check buttons-->
+    <ion-list >
+        <ion-list-header>
+          Send Notification
+          <ion-icon name="ios-arrow-down-outline" item-right></ion-icon>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Send me notification on my phone</ion-label>
+          <ion-checkbox ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Send me an email with notification</ion-label>
+          <ion-checkbox ></ion-checkbox>
+        </ion-item>
+    </ion-list>
+
+  <!--App language radio buttons-->
+    <ion-list radio-group>
+        <ion-list-header>
+          App Language
+          <ion-icon name="ios-arrow-down-outline" item-right></ion-icon>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>English</ion-label>
+          <ion-radio value="english" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>French</ion-label>
+          <ion-radio value="franch"></ion-radio>
+        </ion-item>
+    </ion-list>
+    <!--App Notification Check buttons-->
+    <ion-list >
+        <ion-list-header>
+          Animation
+          <ion-icon name="ios-arrow-down-outline" item-right></ion-icon>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Animation Availability</ion-label>
+          <ion-checkbox (ionChange)="animateApp($event)"  checked="{{action}}" ></ion-checkbox>
+        </ion-item>
+    </ion-list>
+    
+</ion-content>

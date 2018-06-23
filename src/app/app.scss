@@ -1,0 +1,769 @@
+// mixin in all App
+@mixin placeholder {
+    ::-webkit-input-placeholder {@content}
+    ::-webkit-textarea-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}  
+    };
+@mixin whiteNormal($height,$lineNum){
+    white-space: normal; 
+    max-height: $height;
+    line-height: $height / $lineNum;
+    display: block;
+    overflow: hidden;
+    }
+@mixin whiteNoWrap($height){
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    height: $height;
+    line-height: $height;
+    display: block;
+    }
+@mixin centerHeight($height){
+    display:inline-block;
+    height:$height;
+    width: $height;
+    line-height:$height;
+    min-height: $height;
+    text-align:center;
+    }
+@mixin borderRadius($height){
+    @include centerHeight($height);
+    border-radius:50%;
+    }
+@mixin position($top,$right,$bottom,$left){
+    position:absolute;
+    top:$top;
+    right:$right;
+    left:$left;
+    bottom:$bottom;
+    }
+
+// Padding
+[padding]{
+    padding:$mainMarg!important;
+    .scroll-content{
+        padding:$mainMarg!important; 
+        }
+    }
+
+//Style of img Background
+.imgBg{
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    background-position:center center;  
+    }
+
+// Main Button Style
+.button-ios{
+    margin:0px;
+    padding:0px $mainMarg/2;
+    border-radius:0px;
+    .button-inner{
+        overflow:hidden;
+        color:color($colors,light);
+    }
+    &.button-clear-ios{
+        opacity:1;
+    }
+}
+.badge-ios{
+    padding: 3px 5px;
+    font-size:$mainFont - .2;
+    color:color($colors,color4);
+    background-color: color($colors,color1);
+    margin:0px!important;
+}   
+//header style
+.header-ios{
+    .toolbar-ios{
+        padding:$navBarPadding;
+        .bar-buttons-ios{
+            margin:0px;
+            display:flex;
+        }
+        .bar-button-ios{
+            width:$toolbar-ios-height - $mainMarg;
+            height:$toolbar-ios-height - $mainMarg; 
+            min-height:30px;
+            min-width:30px;
+            padding:0px;
+            border-radius:$mainRadius;
+            order:1;
+            position:relative;
+            .badge-ios{
+                @include position(0px,0px ,auto ,auto );
+            }             
+            .icon{
+                font-size:$headerIconSize!important;
+                min-width:auto!important;
+                color:$headerIconColor;
+            }
+            &.activated{
+                opacity:1;
+            }
+            &.bar-button-menutoggle{
+                display:inline-block!important;
+            }
+        }
+        .toolbar-background-ios{
+            border:none!important;
+            background-color:$toolBarBackGround;
+        }
+        .title-ios{
+            padding:0px ($toolbar-ios-height - $mainMarg)*2+$mainMarg/2;
+        }
+    }
+}
+
+
+// Global Style 
+
+// Style for ion list global
+.list-ios{
+    margin: 0px;
+    .item-ios{
+        padding:0px;
+        margin-bottom:$mainMarg;
+        &.list-header-ios{
+            margin:0px !important;
+            border-bottom:none;
+            min-height: 34px;
+            color:color($colors,light);
+            .label{
+                font-weight:500;
+                font-size:$mainFont;
+                text-transform:none;
+            }
+        }
+        &.item-block{
+            min-height:0px;
+            .item-inner{
+                padding:0px;
+                border-bottom:none;
+            }
+            &:first-child{
+                border-top:none;
+            }
+            &:last-child{
+                border-bottom:none;
+                margin-bottom:0px;
+            }
+            &.item-textarea{
+                .text-input-ios{
+                    margin:0px;
+                    width:100%;
+                    min-height:$appFormItemHeight - 10px;
+                    line-height:15px !important;
+                    height:auto !important;
+                    font-size:$inputFontSize;  
+                    padding:$mainMarg 0px;
+                    
+                }
+            }
+
+            &.item-checkbox{
+                border-radius:0px!important;
+                background:none!important;
+                .label-ios{
+                    font-size:$mainFont;
+                }
+                .checkbox-ios {
+                    margin:0px;
+                    .checkbox-checked{
+                         .checkbox-inner{
+                             @include position(-2px,0,0,0);
+                             margin:auto;
+                             width: 5px;
+                         }
+                    }
+                }
+            }
+            &.item-radio{
+                background:none;
+                .label-ios{
+                    font-size:$mainFont;
+                }
+                .radio-ios{
+                    margin:0px;
+                    border:1px solid color($colors,color2);
+                    background-color:$radio-ios-background-color-off;
+                    border-radius:50%;
+                    .radio-checked{
+                        .radio-inner{
+                            @include position(0,0,0,0);
+                            margin:auto;
+                            width:$radio-inner-width;
+                            height:$radio-inner-width;
+                            transform:none;
+                            border:none;
+                            background-color:$radio-inner-color;
+                            border-radius:50%;
+                        }
+                    }
+                }
+            }
+        }
+    .label-ios{
+        margin:0px;
+        }
+    }
+}
+
+// appForm Style (some style from ion list global)
+.appForm{
+    @include placeholder {
+        color: $inputPlaceHolderColor ;
+        font-weight:500;
+    }
+
+    .list-ios{
+        display:inline-block;
+        width:100%;
+        .item-ios{
+            &.item-block{
+                padding:0px $mainMarg/2;
+                background-color:color($colors,light);
+                border-radius:$appFormRadius;
+                margin-bottom:$mainMarg/2;
+                &:last-of-type{
+                    margin-bottom:0px;
+                }
+
+                &.itemWithIcon{
+                    background:none;
+                    padding:0px;
+                    .input-wrapper{
+                        background-color:color($colors,light);
+                        padding:0px $mainMarg;
+                        border-radius:$appFormRadius;
+                    }
+                    .icon{
+                        &[item-right]{
+                            margin:0px;
+                            @include centerHeight($appFormItemHeight);
+                            margin-left:$mainMarg/2;
+                            background-color: color($colors,light);
+                            color:color($colors,color2);
+                            font-size:2.6rem;
+                            border-radius:$appFormRadius;
+                        }
+                    }
+                }
+                .input-wrapper{
+                    padding:0px $mainMarg/2;
+                } 
+
+                .icon{
+                    font-size:$iconFontSize;
+                    &[item-left]{
+                        margin:0px $mainMarg/2;
+                        height:$appFormItemHeight;
+                        line-height:$appFormItemHeight;
+                        color:$iconInputColor;
+                    }
+                }
+                &.item-input{
+                    .input-ios{
+                        .text-input-ios{
+                            margin:0px;
+                            font-size:$inputFontSize;
+                            height:$appFormItemHeight;
+                            line-height:$appFormItemHeight;
+                            width:100%;
+                            color: $inputTextColor;
+                        }
+                    }
+                }
+                &.item-select{
+                    &.disappearLabel{
+                        .label-ios{
+                            display:none;
+                        }
+                        .select-ios{
+                            width:100%;
+                        }
+                    }
+                    .label-ios{
+                        color: $inputPlaceHolderColor ;
+                        font-weight:500;
+                        font-size:$inputFontSize;
+                    }
+                    .select-ios{
+                        padding:0px;
+                        height:$appFormItemHeight;
+                        line-height:$appFormItemHeight;
+                        width:auto;
+                        max-width:100%;
+                        &.disableChoose{
+                            .select-text{
+                                color:$inputPlaceHolderColor!important;
+                                font-weight:500;
+                            }
+                        }
+                        .select-text{
+                            font-size:$inputFontSize;
+                            color:$inputTextColor;
+                        }
+                        .select-icon{
+                            height:$appFormItemHeight;
+                            width:10px;
+                            .select-icon-inner{
+                                margin-top:0px;
+                                left:auto;
+                                right:0px;
+                                top:0px;
+                                bottom:0px;
+                                margin:auto 0px;
+                                color:color($colors,color2);
+                                font-weight:bold;
+                            }
+                        }
+                    }
+                }
+                &.item-datetime{
+                    .item-inner{
+                        padding:0px $mainMarg/2;
+                        .input-wrapper{
+                            padding:0px;
+                            .datetime-ios{
+                                padding:0px;
+                                // width:100%;
+                                .datetime-text{
+                                    font-size: $inputFontSize;
+                                    height:$appFormItemHeight;
+                                    line-height: $appFormItemHeight;
+                                }
+                            }
+                        }
+                        .label-ios{
+                            color: $inputPlaceHolderColor ;
+                            font-weight:500;
+                            font-size:$inputFontSize;
+                        }
+                    }
+                    .icon {
+                        height:$appFormItemHeight;
+                        line-height: $appFormItemHeight;
+                        right: $mainMarg;
+                        margin:0px;
+                    }
+                    &.foundDate{
+                        .label-ios{
+                            display:none!important;
+                        }
+                        .datetime-ios{
+                            width:100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.content-ios{
+    background-color: color($colors,color4);
+}
+ion-menu{
+    .menu-inner{
+        background:color($colors,color2)!important;
+        max-height:95%;
+        max-width: 80%;
+        min-width:50%;
+        .header-ios{ 
+            .toolbar-background-ios{
+                background:none;
+            }
+            .toolbar-ios{
+                padding:0px $mainMarg*2;
+                text-align:center;
+            }
+
+            .profileContainer{
+                border-bottom:1px solid color($colors,color3);
+            }
+        }
+
+        .content-ios{
+            background:color($colors,color2);
+            .list-ios{
+                .item-ios{
+                    background:none;
+                    margin-bottom:0px;
+                    padding:0px $mainMarg*3;
+                    .label-ios{
+                        color:color($colors,color4);
+                        font-size:$mainFont - .1;
+                        height:$mainHeight - 10px;
+                        line-height:$mainHeight - 10px;
+                    }
+                    &.active{
+                        background-color:color($colors,color3)!important;
+                    }
+                }
+            }
+        }
+        .footer{
+            padding:0px $mainMarg*2;
+            .button-ios{
+                border-radius:0px;
+                background:none;
+                border-top:1px solid color($colors,color3);
+            }
+        }
+    }
+}
+
+.alert-ios{  
+    &.select-alert{
+        .alert-radio-label{
+            white-space:normal;
+        }
+        .alert-head{
+            padding:0px;
+            background-color:color($colors,color2);
+            h2{
+                margin:0px;
+                @extend h4;
+                padding:0px $mainMarg;
+                @include whiteNormal($mainHeight,1 );
+                color:color($colors,light);
+            }
+        }
+        .alert-message{
+            padding:0px!important;
+        }
+        [aria-checked=true]{
+            .alert-radio-inner{
+                border-color:color($colors,color1);
+            }
+            .alert-radio-label{
+                color:color($colors,color1);
+            }
+        }
+        .alert-button-group{
+            background-color:color($colors,color1);
+            .alert-button{
+                border:none!important;
+                color: color($colors,light);
+                &:first-of-type{
+                    background-color:color($colors,color2);
+                }
+                &:last-of-type{
+                    background-color:color($colors,color1);
+                }
+            }
+
+        }
+    }      
+}
+
+.picker-ios{
+    .picker-toolbar{
+        background-color:color($colors,color2);
+    }
+    .picker-col{
+        background-color: color($colors,color2);
+    }
+    .picker-opt{
+        color:color($colors,light);
+    }
+    .picker-toolbar-button{
+        &:last-of-type{
+            background-color: color($colors,color1);
+        }
+        .picker-button{
+            width:100%;
+            .button-inner{
+                color: color($colors,light);
+                font-size:$mainFont;
+                font-weight:500;
+            }
+        }
+    }
+    .picker-below-highlight{
+        background: linear-gradient(to top, color($colors,color2) 30%, rgba(255, 255, 255, 0.4) 100%);
+    }
+    .picker-above-highlight{
+        background: linear-gradient(to bottom, color($colors,color2) 30%, rgba(255, 255, 255, 0.4) 100%);
+    }
+}
+
+// found in side menu and profile Page
+
+.profileContainer{
+    text-align:center;
+    background-color:color($colors,color2);
+    position:relative;
+    padding:$mainMarg*2 $mainMarg;
+    .icon{
+        font-size:1.8rem;
+        background-color: color($colors,color1);
+        color:color($colors,light);
+        @include borderRadius(26px);
+    }
+    >.icon{
+        @include position($mainMarg,-$mainMarg,auto ,auto );
+
+    }
+    .imgBg{
+        width:80px;
+        height:80px;
+        border-radius:50%;
+        position:relative;
+        margin:auto;
+        .icon{
+            @include position(auto,0px ,0px ,auto );
+        }
+    }
+    p{
+        color:color($colors,color4);
+        margin: 0px;
+        @include whiteNormal(16px,1 );
+    }
+    h5{
+        @extend p;
+        font-weight:600;
+        margin: $mainMarg/2  0px 0px;
+    }
+} 
+
+%not{
+    .avatarItem{
+        .grid{
+            padding:0px;
+            .col{
+                padding:0px;
+                overflow:hidden;
+                h4{
+                    color:color($colors,color1);
+                }
+                &[col-auto]{
+                    max-width:70%;
+                }
+                p{
+                    margin:0px!important;
+                    padding:0px 0px 0px $mainMarg/2;
+                    color:color($colors,color3)!important;
+                    font-weight:400;
+                }
+            }
+        }
+
+        p{
+            @include whiteNormal(30px,2);
+            color:color($colors,color2)!important;
+        }
+        .icon{
+            color:color($colors,color3);
+        }
+    }
+    .notCompany{
+        @extend .avatarItem;
+        .col{
+            &[col-auto]{
+                p{
+                    font-weight:500!important;
+                    color:color($colors,color2)!important;
+                    padding:0px;
+                }
+            }
+        }
+    }
+}
+
+
+/// item avatar
+
+.avatarItem{
+    &.item-ios{
+        align-items:flex-start;
+        padding:$mainMarg/2;
+        ion-avatar {
+            margin:0!important;
+            height:$avatar-imag-size;
+            width:$avatar-imag-size;
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+        .input-wrapper{
+            padding:$mainMarg/2;
+            display:flex;
+            align-items:center;
+        }
+        ion-icon{
+            &[item-right]{
+                margin:0px;
+                width:34px;
+                height:34px;
+                text-align:right;
+            }
+        }
+        h4{
+            margin:0px;
+            @include whiteNormal(30px,2);
+            color:color($colors,color2);
+            font-weight:600;
+        }
+        p{
+            color:color($colors,color3); 
+            margin:$mainMarg/2 0px 0px;
+            font-weight:600;
+        }
+    }
+
+} 
+
+// job Details
+
+.jobDetails{
+        background:color($colors,light);
+        margin-top:$mainMarg;
+        .grid{
+            padding:0px;
+            .col{
+                padding:0px;
+                p{
+                    margin:0px;
+                }
+                >span{
+                    color:color($colors,color3);
+                    font-size:1.1rem;
+                    @include whiteNormal(30px,2);  
+                }
+
+            }
+        }
+        p{
+            color:color($colors,color1);
+            font-weight:500;
+            @include whiteNormal(30px,2);
+            margin:$mainMarg/2 0px;
+            span{
+                color: color($colors,color2);
+            }
+        }
+        .list-ios{
+            .item-ios{
+                margin-bottom:$mainMarg/2;
+                p{
+                    margin:0px;
+                    color: color($colors,color2);
+                }
+                .icon{
+                    $x:6px;
+                    margin: $mainMarg/2 ;
+                    background:color($colors,color1);
+                    @include borderRadius($x);
+                    min-width:$x;
+                }
+            }
+        }
+        .desc{
+            .parag{
+                max-height:none;
+                color:color($colors,color2);
+                margin:0px;
+                font-size:$mainFont - .1!important;
+                font-weight:400;
+
+            }
+            h5{
+                @extend p;
+                margin-bottom:3px;
+            } 
+        }
+    }
+
+// Job Container
+.jobContainer{
+    background:color($colors,light);
+    padding:$mainMarg/2;
+    border-radius:$appFormRadius;
+    .grid {
+        padding:0px!important;
+        .col{
+            padding:$mainMarg/2;
+            h5{
+                margin:0px;
+                @include whiteNoWrap(30px);
+                color: color($colors,color2);
+                font-weight:600;
+            }
+            p{
+                @include whiteNoWrap(30px);
+                color: color($colors,color3);
+                margin: 0px;
+            }
+        }
+        .row{
+            &:last-of-type{
+                p{
+                    color: color($colors,color2);
+                    height:15px;
+                    line-height:15px;
+                    span{
+                        color:color($colors,color1);
+                    }
+                }
+            }
+        }
+    } 
+    >p{
+        &.someDetails{
+            @include whiteNormal(30px,2);
+            height:auto;
+            padding: 0px $mainMarg/2;
+            margin:$mainMarg/2 0px;
+            word-break: normal;
+            color:color($colors,color3);
+        }
+    } 
+}
+.saveBtn{
+    color:color($colors,color2);
+    font-size:2.5rem!important;
+    width:100%;
+}
+.hire-floppy{
+    @extend .saveBtn;
+}
+.searchFooter{
+    $x:50px;
+    height:$x;
+    width:$x;
+    left:auto;
+    right:$mainMarg/2;
+    bottom:60px;
+    .icon{
+        @include borderRadius($x);
+        background-color:color($colors,color1);
+        color:color($colors,light);
+        font-size:2.2rem;
+    }
+}
+
+
+.input-cover{
+    position:initial!important;
+}
+
+.noPostedJobs{
+    text-align:center;
+    .icon{
+        font-size: 15rem;
+        color:color($colors,color1);
+    }
+    p{
+        margin:0px;
+        @include whiteNormal(40px,2);
+        font-size:2rem!important;
+        color:color($colors,color2);
+        font-weight:bold;
+    }
+}

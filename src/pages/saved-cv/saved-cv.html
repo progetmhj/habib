@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle >
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Save CV</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchPopover($event)" >
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-md-6 col-lg-4  col-xl-3  *ngFor="let x of items , let i = index" (click)="goTo('CvDetailsPage')">
+        <ion-item class="avatarItem">
+          <ion-avatar item-left>
+            <img src="{{x.img}}"/>
+          </ion-avatar>
+            <ion-grid class="nameGrid">
+              <ion-row>
+                <ion-col col>
+                  <h4>{{x.name}}</h4>
+                </ion-col>
+                <ion-col col-auto>
+                  <ion-icon name="md-trash" (click)="removeItem(x,$event)"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <p>Faculty of {{x.facullty}}</p>
+            <p class="withSpan">
+              Skills:
+              <span *ngFor="let y of x.Skills">{{y}} / </span>
+              
+            </p>
+            <p class="withSpan"> 
+              Experience:
+              <span>{{x.experience}}</span>
+            </p>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  <p>
+                    <ion-icon name="md-call"></ion-icon>
+                    Call
+                  </p>
+                </ion-col>
+                <ion-col col-6>
+                  <p (click)="callEmailModal();stopPropagation($event)">
+                    <ion-icon name="ios-mail"></ion-icon>
+                    Send email
+                  </p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <div class="noPostedJobs" *ngIf="noItemsOfCV == true" padding >
+    <ion-icon name="ios-warning-outline"></ion-icon>
+    <p >No CV Saved</p>
+  </div>
+
+</ion-content>
+
+<ion-footer class="searchFooter">
+  <ion-icon name="ios-funnel" (click)="goTo('SearchHirePage')"></ion-icon>
+</ion-footer>

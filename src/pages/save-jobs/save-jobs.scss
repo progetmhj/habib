@@ -1,0 +1,10 @@
+page-save-jobs {
+    .scroll-content{
+        >.grid{
+            padding:0px;
+            .icon{
+                @extend .saveBtn;
+            }
+        }
+    }
+}

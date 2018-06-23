@@ -1,0 +1,42 @@
+page-setting {
+ .scroll-content{
+        padding:$mainMarg/2;
+    }
+    .list-ios{
+        padding:$mainMarg/2;
+        margin-bottom:0px;
+        .list-header-ios{
+            margin-top:0px!important;
+            border-bottom:none;
+            text-transform:capitalize;
+            .label-ios{
+                color:color($colors,color1);
+            }
+        }
+        .item-ios{
+            &.item-block{
+                .label-ios{
+                    color:color($colors,color2)!important;
+                }
+                &.item-checkbox{
+                    direction:rtl;
+                    .label-ios{
+                        color:color($colors,color2);
+                        direction:ltr;
+                    }
+                }
+            }
+        }
+        
+        .icon-ios{
+            &[item-right]{
+                margin:0px;
+                font-size:1.4rem;
+                background-color:color($colors,color1);
+                color:color($colors,light);
+                @include centerHeight($checkbox-ios-icon-size);
+                border-radius:0;
+            }
+        }
+    }
+}

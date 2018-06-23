@@ -1,0 +1,108 @@
+page-sign-in {
+
+}
+.sign {
+
+  .scroll-content {
+    padding: 20px !important;
+    > .button-ios {
+      // margin-top:$mainMarg/2;
+    }
+  }
+  .logo {
+    position: relative;
+    .icon {
+      position: absolute;
+      left: 0px;
+      top: 10px;
+      font-size: 3rem;
+      font-weight: bold;
+      color: color($colors, color2);
+      @include centerHeight(34px);
+    }
+    img {
+      width: 150px;
+    }
+    h3 {
+      @include whiteNormal(20px, 1);
+      color: color($colors, color2);
+      font-size: 2.4rem !important;
+    }
+    p {
+      margin: 0px;
+      @include whiteNormal(18px, 1);
+      color: color($colors, color2);
+      font-size: 1.1rem !important;
+    }
+  }
+  .appForm {
+    p {
+      @extend h4;
+      color: color($colors, color2);
+      margin: 0px;
+      @include whiteNormal(30px, 1);
+
+    }
+    .list-ios {
+      background-color: color($colors, color7);
+      padding: $mainMarg*2;
+      .item-ios {
+        &.item-block {
+          background-color: color($colors, color4);
+
+        }
+
+      }
+    }
+  }
+}
+#icon{
+  color:  #0878ba;
+}
+#icon1{
+  color:  #79bf42;
+}
+#rs{
+  color:#ef1d38;
+}
+
+%orStyle {
+  content: '';
+  height: 1px;
+  background-color: color($colors, color2);
+  position: absolute;
+  top: 15px;
+  width: calc(50% - 20px);
+}
+/* .or{
+     position:relative;
+     margin:$mainMarg 0px;
+     text-align:center;
+     span{
+         color:color($colors,light);
+         @include borderRadius(30px);
+         background-color:color($colors,color1);
+         margin:0px 5px;
+     }
+     &::after{
+         right:0px;
+         @extend %orStyle;
+     }
+     &::before{
+         left:0px;
+         @extend %orStyle;
+     }
+ }*/
+
+/*.socialMedia{
+    text-align:center;
+    .icon{
+        @include borderRadius($mainHeight);
+        background-color:color($colors,color2);
+        color:color($colors,color4);
+        font-size:2.2rem;
+        margin:$mainMarg/2;
+    }
+}
+}*/
+

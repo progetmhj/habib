@@ -1,0 +1,37 @@
+page-discover-work {
+    .show-back-button{
+        display:none!important;
+    }
+    .content-ios{
+        .scroll-content{
+            margin-bottom:0px!important;
+        }
+    }
+}
+
+
+.jobList{ 
+    padding:$mainMarg/2;
+    .tabs{
+        p{
+            @include whiteNormal(30px,1);
+            &.active{
+                background-color:color($colors,color1);
+                border-radius:$appFormRadius;
+                color:color($colors,light);
+            }
+        }
+    }
+    .col{
+        padding:$mainMarg/2;
+        p{
+            margin:0px;
+            // @include whiteNoWrap($mainHeight - $mainMarg*2);
+            font-weight:500;
+            color: color($colors,color2);
+            &[text-left]{
+                color:color($colors,color1);
+            }
+        }
+    }
+}

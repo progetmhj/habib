@@ -1,0 +1,15 @@
+{
+  "array":[
+    {
+      "messageId":"1",
+      "userId":"1",
+      "userName":"Company Name",
+      "userImgUrl":"./assets/img/006.png",
+      "toUserId":"2",
+      "toUserName":"Adam",
+      "toUserImgUrl":"../assets/img/005.png",
+      "message":"Hello ,, Dear Adam you have an interview on sunday at 10 am" ,
+      "status":"success"
+    }
+  ]
+} 

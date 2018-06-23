@@ -1,0 +1,63 @@
+<ion-content class="sign">
+  <div class="logo">
+    <ion-icon name="ios-arrow-round-back" navPop></ion-icon>
+    <img src="assets/img/g.png"/>
+    <h3>Recruit</h3>
+    <p>Search your job</p>
+  </div>
+  <div class="appForm" [formGroup]="someForm"  #loginForm="ngForm" (ngSubmit)="postclient()">
+    <p>Sign Up</p>
+    <ion-list>
+      <ion-item>
+        <ion-icon item-left name="md-mail" id="icon"></ion-icon>
+        <ion-input type="email" placeholder="Email" formControlName="input4"   name="email"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( someForm.get('input4').hasError('required') ) && someForm.get('input4').touched">
+      </ion-item>
+      <div class="error" *ngIf="someForm.get('input4').hasError('required') && someForm.get('input4').touched">
+        <p id="rs3">EMAIL required</p>
+      </div>
+      <ion-item>
+        <ion-icon item-left name="md-person" id="icon5"></ion-icon>
+        <ion-input type="text" placeholder="UserName" formControlName="input5"  name="username"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( someForm.get('input5').hasError('required') ) && someForm.get('input5').touched">
+      </ion-item>
+      <div class="error" *ngIf="someForm.get('input5').hasError('required') && someForm.get('input5').touched">
+        <p id="rs4"> User Name required</p>
+      </div>
+      <ion-item>
+        <ion-icon item-left name="md-lock" id="icon2"></ion-icon>
+        <ion-input type="password" placeholder="Password" formControlName="input3"  name="password"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( someForm.get('input3').hasError('required') ) && someForm.get('input3').touched">
+      </ion-item>
+      <div class="error" *ngIf="someForm.get('input3').hasError('required') && someForm.get('input3').touched">
+        <p id="rs2">PASSWORD required</p>
+      </div>
+      <ion-item>
+        <ion-icon item-left name="md-key" id="icon3"></ion-icon>
+        <ion-input type="password" placeholder="Confirm Password" formControlName="input2"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( someForm.get('input2').hasError('required') ) && someForm.get('input2').touched">
+      </ion-item>
+      <div class="error" *ngIf="someForm.get('input2').hasError('required') && someForm.get('input2').touched">
+        <p id="rs1">FIELD required</p>
+      </div>
+      <ion-item>
+        <ion-icon item-left name="ios-call" id="icon4"></ion-icon>
+        <ion-input type="num" placeholder="Phone Number" formControlName="input1"  name="phone"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( someForm.get('input1').hasError('required') ) && someForm.get('input1').touched">
+      </ion-item>
+      <div class="error" *ngIf="someForm.get('input1').hasError('required') && someForm.get('input1').touched">
+        <p id="rs"> PHONE NUMBER required</p>
+      </div>
+      <!--user name-->
+
+    </ion-list>
+
+  </div>
+  <button ion-button block color="color1" (click)="goTo('DiscoverWorkPage')"(click)="savecondidate()"[disabled]="!loginForm.form.valid" [disabled]="!someForm.valid">Sign Up</button>
+
+</ion-content>

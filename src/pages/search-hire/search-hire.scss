@@ -1,0 +1,22 @@
+page-search-hire {
+    @extend .editCV;
+    .content-ios{
+        background-color:color($colors,color3);
+        p{
+            color: color($colors,light);
+        }
+        h4{
+            color: color($colors,light);
+
+        }
+        .skills {
+            .item-ios{
+                &.item-block{
+                    .label-ios{
+                        color: color($colors,light)!important;
+                    }
+                }
+            }
+        }
+    }
+}

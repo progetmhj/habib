@@ -1,0 +1,86 @@
+.editCV {
+    .list-ios{
+        margin-bottom:$mainMarg/2;
+    }
+    .grid{
+        padding:0px;
+        .col{
+            padding:0px;
+            .item-ios{
+                &.item-block{
+                    margin-bottom:$mainMarg/2!important;
+                    width:calc(100% - #{$mainMarg}/2);
+                    float:left;
+                }
+            }
+            &:last-of-type{
+                .item-ios{
+                    &.item-block{
+                        width:100%!important;
+                        float:none;
+                    }
+                }
+            }
+            .button-ios{
+                .button-inner{
+                    color:color($colors,color5);
+                }
+            }
+        }
+    }
+    .labelStaked{
+        font-weight:500;
+        margin:$mainMarg/2 0px 0px;
+        @include whiteNormal(15px,1);
+        display: inline-block;
+        width:100%;
+    }
+    .courseName{
+        margin-bottom:0px;
+        display:block!important;
+        .item-ios{
+            background:none!important;
+            margin-bottom:0px!important;
+        }
+        .label-ios{
+            @include whiteNormal(28px,2);
+            font-size:$mainFont - .2;
+            color:color($colors,color5);
+            span{
+                &:first-of-type{
+                color: color($colors,color2);
+                }
+            }
+        }
+        .icon{
+            &[item-right]{
+                margin:0px;
+                color:color($colors,danger);
+                height: 25px;
+                line-height: 25px;
+                min-height:25px;
+                width:34px;
+                text-align:center;
+            }
+        }
+    }
+    .skills{
+        p{
+            @extend .labelStaked;
+            color:color($colors,color5);
+        }
+        .item-ios{
+            &.item-block{
+                padding:0px!important;
+                .label-ios{
+                    color:color($colors,color2)!important;
+                    padding:0px!important;
+                }
+            }
+        }
+        &:last-of-type{
+            margin-bottom:$mainMarg;
+        }
+    }
+
+}

@@ -1,0 +1,21 @@
+page-search-work {
+    .content-ios{
+        background-color:color($colors,color3);
+        .list-ios{
+            margin-bottom:$mainMarg;
+            &:last-of-type{
+                margin-bottom:0px;
+            }
+            .item-ios{
+                &.item-checkbox{
+                    .label-ios{
+                        color:color($colors,light);
+                        padding:0px $mainMarg;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

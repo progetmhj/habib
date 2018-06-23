@@ -1,0 +1,55 @@
+page-chat {
+
+@extend %not;
+  .item-ios{
+      .label-ios{
+        >p{
+          max-height:none!important;
+        }
+      }
+  }
+
+.rightAvatar{
+  direction:rtl;
+    .input-wrapper{
+      direction:ltr;
+      }
+    .grid{
+      direction:rtl;
+      .col{
+        h4{
+          text-align:right;
+        }
+        p{
+          padding:0px $mainMarg/2;
+        }
+      }
+    }
+  }
+  .footer-ios{
+    padding:$mainMarg/4;
+    background-color:color($colors,light);
+    .grid{
+      padding:0px;
+      .col{
+        padding:$mainMarg/4;
+        overflow:hidden;
+        .button-ios{
+          &.button-block{
+            width:80px;
+            border-radius:$appFormRadius;
+          }
+        }
+        .input-ios{
+          height:100%;
+          padding:$mainMarg/2;
+          background-color:color($colors,color4);
+          border-radius:$appFormRadius;
+          .text-input-ios{
+            margin:0px;
+          }
+        }
+      }
+    }
+  }
+}

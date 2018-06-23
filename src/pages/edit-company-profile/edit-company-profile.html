@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle >
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Edit Company Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchPopover($event)" >
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="editCV">
+  <div class="appForm">
+    <ion-list>
+      <!-- Company Name -->
+      <ion-item>
+        <ion-input type="text" placeholder="Company Name"></ion-input>
+      </ion-item>
+
+      <!-- Country Select Item -->
+      <ion-item [ngClass]="{'disappearLabel':country != undefined}" >
+        <ion-label >Country</ion-label>
+        <ion-select [(ngModel)]="country" >
+          <ion-option value="united state">United State</ion-option>
+          <ion-option value="england">England</ion-option>
+          <ion-option value="italy">Italy</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- City Select Item -->
+      <ion-item [ngClass]="{'disappearLabel':city != undefined}" >
+        <ion-label >City</ion-label>
+        <ion-select [(ngModel)]="city" >
+          <ion-option value="New York">New York</ion-option>
+          <ion-option value="Washington">Washington</ion-option>
+          <ion-option value="Chicago">Chicago</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- since when do  -->
+      <ion-item [ngClass]="{'foundDate':date != undefined}">
+        <ion-label >Since When</ion-label>
+         <ion-datetime displayFormat="YYYY" [(ngModel)]="date"></ion-datetime>
+         <ion-icon name="md-arrow-dropdown" item-right></ion-icon>
+      </ion-item>
+
+      <!-- Services Select -->
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            <p class="labelStaked">Our Services</p>
+            <ion-list class="courseName">
+              <ion-item *ngFor="let item of arr_val; let i = index">
+
+                  <span>{{i + 1}}</span>
+                  -
+                  <span>{{item}}</span>
+
+                <ion-icon item-right name="md-close" (click)="removeItem(item)"></ion-icon>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+          <ion-col col-8>
+            <ion-item>
+              <ion-input type="text" placeholder="Service" [(ngModel)]="text_val"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button block clear (click)="save_value()">Add</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div >
+        <p class="labelStaked">Contact US</p>
+        <!-- Company Phone Number -->
+        <ion-item>
+          <ion-input type="num" placeholder="Phone Number"></ion-input>
+        </ion-item>
+        <!-- Company E-mail -->
+        <ion-item>
+          <ion-input type="num" placeholder="E-mail"></ion-input>
+        </ion-item>
+      </div>
+
+      
+    </ion-list>
+  </div>
+ 
+</ion-content>
+<ion-footer>
+   <button ion-button block color="color1" (click)="goTo('ProfileCompanyPage')">Save</button>
+</ion-footer>

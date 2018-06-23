@@ -1,0 +1,76 @@
+page-discover-hire {
+    .back-button{
+        &.show-back-button{
+            display:none;
+        }
+    }
+    .scroll-content{
+        margin-bottom:0px!important;
+    }
+    .grid{
+        padding:$mainMarg/2;
+        .col{
+            padding:$mainMarg/2;
+            .item-ios{
+                &.avatarItem{
+                    align-items:flex-start;
+                    padding:$mainMarg/2;
+                    ion-avatar {
+                        margin:$mainMarg/2!important;
+                        height:$avatar-imag-size;
+                        width:$avatar-imag-size;
+                        img{
+                            width:100%;
+                            height:100%;
+                        }
+                    }
+                    .item-inner{
+                        padding:0px;
+                        border-bottom:none;
+                        .input-wrapper{ 
+                            padding:$mainMarg/2;
+                            .label-ios{
+                                margin:0px;
+                            }
+                        }
+                    }
+                    h4{
+                        margin:0px 0px $mainMarg;
+                        @include whiteNoWrap(15px);
+                        color:color($colors,color2);
+                        font-weight:500;
+                    }
+                    p{
+                        color:color($colors,color2); 
+                        margin: 0px 0px $mainMarg/2;
+                        font-weight:400;
+                        @include whiteNormal(30px,2);
+                        &.withSpan{
+                            color:color($colors,color1);
+                            span{
+                                color:color($colors,color2);
+                            }
+                        }
+                    }
+                    .grid{
+                        padding:0px;
+                        .col{
+                            padding:0px;
+                            .icon{
+                                font-size:2rem;
+                                color:color($colors,color1);
+                                margin:0px$mainMarg;
+                            }
+                            p{
+                                margin:0px;
+                                overflow: hidden;
+                                display:flex;
+                                align-items:center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

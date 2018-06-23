@@ -1,0 +1,95 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle >
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Job Details</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="searchPopover($event)" >
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item class="avatarItem">
+      <ion-avatar item-left>
+        <img src="assets/img/004.png"/>
+      </ion-avatar>
+      <h4>Company Name</h4>
+      <p>USA</p>
+      <ion-icon class="hire-floppy" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div class="jobDetails" padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9>
+          <p>Graphic Designer Required</p>
+        </ion-col>
+        <ion-col col-3 text-right>
+          <span>1 d ago</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <p>
+      Salary :
+      <span>3000 $</span>
+    </p>
+
+    <p>
+      Field :
+      <span>Art & Design</span>
+    </p>
+
+    <p>
+      Experience :
+      <span>2..5 Years</span>
+    </p>
+
+    <p>
+      Education Level :
+      <span>Bac +3</span>
+    </p>
+
+    <!--<p>
+      Job Type :
+      <span>Full Time</span>
+    </p>-->
+
+    <p>
+      Type Of Contract :
+      <span>Permanent</span>
+    </p>
+
+
+    <p>
+      Skills :
+    </p>
+
+    <ion-list>
+      <ion-item *ngFor="let item of skills">
+        <ion-icon item-left></ion-icon>
+        <p>{{item.skill}}</p>
+      </ion-item>
+    </ion-list>
+
+    <div class="desc">
+      <h5>Job Description :</h5>
+      <p class="parag">
+        It is a long established fact that a reader will be distracted by the readable.
+        It is a long established fact that a reader will be distracted by the readable.
+      </p>
+    </div>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <button block ion-button color="color1">APPLAY FOR THE JOB</button>
+</ion-footer>

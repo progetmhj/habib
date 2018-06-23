@@ -1,0 +1,57 @@
+page-cv-details {
+    .content-ios{
+        background-color:color($colors,color3);
+    }
+    .avatarItem{
+        &.item-ios{
+            padding:$mainMarg;
+            border-bottom:1px solid color($colors,color1)!important;
+            background:none;
+            .input-wrapper{
+                padding:$mainMarg;
+            }
+            ion-avatar{
+                position:relative;
+                margin:$mainMarg!important;
+                .icon{
+                    @include position(auto,0px,0px,auto);
+                    @include borderRadius(24px);
+                    background-color:color($colors,color1);
+                    color:color($colors,light);
+                    font-size:1.8rem;
+                }
+            }
+            h4{
+                color: color($colors,light);
+            }
+            p{
+                color: color($colors,light);
+            }
+        }
+    }
+    .jobDetails{
+        background:none;
+        padding:0px $mainMarg !important;
+        .item-ios{
+            background:none;
+        }
+        >p{
+            margin-top:0px;
+            margin-bottom:$mainMarg;
+        }
+        p{
+            color: color($colors,light)!important;
+            span{
+                color: color($colors,light)!important;
+            }
+        }
+    }
+    .footer{
+        .grid{
+            padding:$mainMarg/4;
+            .col{
+                padding:$mainMarg/4;
+            }
+        }
+    }
+}

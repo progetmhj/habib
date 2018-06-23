@@ -1,0 +1,45 @@
+page-notification {
+    .avatarItem{
+        .grid{
+            padding:0px;
+            .col{
+                padding:0px;
+                overflow:hidden;
+                h4{
+                    color:color($colors,color1);
+                }
+                &[col-auto]{
+                    max-width:70%;
+                }
+                p{
+                    margin:0px!important;
+                    padding:0px 0px 0px $mainMarg/2;
+                    color:color($colors,color3)!important;
+                    font-weight:400;
+                }
+            }
+        }
+
+        p{
+            @include whiteNormal(30px,2);
+            color:color($colors,color2)!important;
+        }
+        .icon{
+            color:color($colors,color3);
+        }
+    }
+    .notCompany{
+        ion-avatar{
+            display:none!important;
+        }
+        .col{
+            &[col-auto]{
+                h4{
+                    font-weight:500!important;
+                    color:color($colors,color2)!important;
+                    padding:0px;
+                }
+            }
+        }
+    }
+}

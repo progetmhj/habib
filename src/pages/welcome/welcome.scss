@@ -1,0 +1,66 @@
+page-welcome {
+    .content-ios{
+        background-image:url(../../assets/img/001.png);
+        @extend .imgBg;
+        .scroll-content{
+            padding:20px ;
+        }
+        .logo{
+            img{
+                width:200px;
+            }
+            h3{
+                @include whiteNormal(20px,1);
+                color:color($colors,dark);
+                font-size:2.6rem!important;
+            }
+            p{
+                margin: 0px;
+                @include whiteNormal(18px,1);
+                color:color($colors,color4);
+            }
+        }
+        .groubBtns{
+            padding:$mainMarg*2;
+            background:rgba( color($colors,color4),.45);
+            .button-ios{
+                background-color: color($colors,color4);
+                .button-inner{
+                    color: color($colors,color2);
+                    font-weight:bold;
+                }
+                &:first-of-type{
+                    margin-bottom:$mainMarg;
+                }
+                // &.active{
+                //     background-color:color($colors,color2);
+                //     .button-inner{
+                //         color: color($colors,color4);
+                //     }
+                // }
+                .icon{
+                    display:inline-block;
+                    line-height:$mainHeight - 2px;
+                    margin: 0px $mainMarg/2;
+                    font-size:2.2rem;
+                    color:color($colors,color1);
+                }
+            }
+        }
+    }
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:30px;
+    img{
+        max-width:50%;
+    }
+    h3{
+        margin: 0px;
+    }
+    p{
+        margin: 0px;
+        @include whiteNormal(13px,1);
+    }
+}

@@ -1,0 +1,10 @@
+page-messages {
+    @extend %not;
+    .avatarItem{
+        .label-ios{
+            >p{
+                white-space:nowrap;
+            }
+        }
+    }
+}

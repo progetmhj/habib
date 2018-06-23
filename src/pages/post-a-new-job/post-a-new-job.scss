@@ -1,0 +1,23 @@
+page-post-a-new-job {
+
+    .content-ios{
+        .companyName{
+            color: color($colors,color2);
+            @include whiteNormal(30px,2);
+            margin:0px 0px $mainMarg;
+        }
+        p{
+            margin:0px;
+            color:color($colors,color1);
+            @include whiteNormal(12px,1);
+            &.labelStaked{
+                color: color($colors,color2);
+                font-weight:600;
+                height:30px;
+                line-height:30px;
+                max-height:30px;
+            }
+        }
+   
+    }
+}

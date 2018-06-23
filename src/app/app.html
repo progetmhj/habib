@@ -1,0 +1,57 @@
+<ion-menu [content]="content" type="overlay" swipeEnabled="false" id="workMenu">
+  <ion-header>
+    <ion-toolbar>
+      <div class="profileContainer">
+          <div class="imgBg" [ngStyle]="{'background-image':'url(' + base64Image + ')'}">
+            <ion-icon name="ios-camera" (click)="accessGallery()"></ion-icon>
+          </div>
+          <h5>Habib jrad</h5>
+          <p>Tunisia</p>
+          <ion-icon name="md-create" menuClose (click)="openPage('ProfilePersonPage')"></ion-icon>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item menuClose  *ngFor="let w of workPages ; let i=index" (click)="openPage(w.component);toggleGroup(i)"  [ngClass]="{active: isGroupShown(i)}">
+        {{w.title}}
+        <ion-badge item-right *ngIf="w.title=='Notifications'||w.title=='Messages'">2</ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <button ion-button block menuClose (click)="openPage('WelcomePage');toggleGroup(null)" >Logout</button>
+  </ion-footer>
+</ion-menu>
+
+
+<ion-menu [content]="content" type="overlay" swipeEnabled="false" id="hireMenu">
+  <ion-header>
+    <ion-toolbar>
+      <div class="profileContainer">
+          <div class="imgBg" [ngStyle]="{'background-image':'url(' + base64Image2 + ')'}">
+            <ion-icon name="ios-camera" (click)="accessGallery2()"></ion-icon>
+          </div>
+          <h5>Company Name</h5>
+          <p>New York</p>
+          <ion-icon name="md-create" menuClose (click)="openPage('ProfileCompanyPage')"></ion-icon>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item menuClose  *ngFor="let h of hirePages ; let i=index" (click)="openPage(h.component);toggleGroup(i)"  [ngClass]="{active: isGroupShown(i)}">
+        {{h.title}}
+        <ion-badge item-right *ngIf="h.title=='Notifications'||h.title=='Messages'">2</ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <button ion-button block menuClose (click)="openPage('WelcomePage');toggleGroup(null)" >Logout</button>
+  </ion-footer>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" [class.animateApp]="animateVarible==true" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,213 @@
+@import "../assets/animate/animate.scss";
+.animateApp{
+// ********************** My Classes that extended *************
+
+    .bounceInLeft{
+        @include bounceInLeft(
+            $duration:1.5s,
+            $count: 1,
+            $delay: .2s,
+            $function: ease, 
+            $fill: both
+            ); 
+        } 
+    .bounceInRight{
+        @include bounceInRight(
+            $duration:1.5s,
+            $count: 1,
+            $delay: .2s,
+            $function: ease, 
+            $fill: both
+            ); 
+        } 
+
+    .flipInX{
+        @include flipInX(
+            $duration:1.5s,
+            $count: 1,
+            $delay: .2s,
+            $function: ease, 
+            $fill: both
+            );
+        }
+
+    
+    .rotateInDownLeft{
+        @include rotateInDownLeft(
+            $duration:1.5s,
+            $count: 1,
+            $delay: .2s,
+            $function: ease, 
+            $fill: both
+            ); 
+        }
+    .fadeIn{
+        @include fadeIn(
+            $duration:1.5s,
+            $count: 1,
+            $delay: 0s,
+            $function: ease, 
+            $fill: both
+            ); 
+        }
+ 
+    .fadeInUp{
+        @include fadeInUp(
+            $duration:1.5s,
+            $count: 1,
+            $delay: .25s,
+            $function: ease, 
+            $fill: both
+            ); 
+        }
+    .fadeInDown{
+            @include fadeInDown(
+            $duration:1.5s,
+            $count: 1,
+            $delay: .25s,
+            $function: ease, 
+            $fill: both
+            ); 
+        }
+    .fadeInRight{
+        @include fadeInRight(
+        $duration:1.5s,
+        $count: 1,
+        $delay: .25s,
+        $function: ease, 
+        $fill: both
+        ); 
+    }
+    
+    .fadeInLeft{
+        @include fadeInLeft(
+        $duration:1.5s,
+        $count: 1,
+        $delay: .25s,
+        $function: ease, 
+        $fill: both
+        ); 
+    } 
+        
+// *************************************
+    .logo{
+        @extend .fadeInUp;
+    }
+    page-welcome {
+        .scroll-content{
+            >.button-ios{
+                @extend .fadeInUp;      
+            }
+        }
+        .groubBtns{
+            .button-ios{
+                &:first-of-type{
+                    @extend .bounceInLeft;
+                }
+                &:last-of-type{
+                    @extend .bounceInRight;
+                }
+                .icon{
+                    @extend .fadeIn;
+                }
+            }
+        }
+    }   
+
+    .appForm{
+        .item-ios{
+            &:nth-child(2n + 1){
+                @extend .bounceInLeft;
+            }
+            &:nth-child(2n){
+                @extend .bounceInRight;
+            }
+        }
+    }
+    .sign{
+        .scroll-content{
+            >.button-ios{
+                @extend .fadeInUp;      
+            }
+        }
+    } 
+    .socialMedia{
+        .icon{
+            &:nth-child(1){
+                @extend .fadeInLeft;
+            }
+            &:nth-child(2){
+                @extend .fadeInDown;
+            }
+            &:nth-child(3){
+                @extend .fadeInRight;
+            }
+        }
+    }
+    .jobContainer{
+        @extend .flipInX;   
+    }
+    .searchFooter{
+         @extend .bounceInRight;
+    }
+    .avatarItem{
+        ion-avatar{
+            @extend .rotateInDownLeft;
+        }
+    }
+    .profileTabBar{
+        @extend .fadeInUp;    
+    }
+    .profileContainer{
+        .imgBg{
+            @extend .fadeInDown; 
+        }
+    }
+    .list-ios{
+        .item-checkbox,.item-radio{
+            &:nth-child(2n + 1){
+                @extend .bounceInLeft;
+            }
+            &:nth-child(2n){
+                @extend .bounceInRight;
+            }
+
+        }
+    }
+    .icon{
+        &[item-right]{
+             @extend .fadeInRight; 
+        }
+    }
+    .aboutList {
+        .grid{
+            p{
+                @extend .fadeIn;
+            }
+        }
+        .item2{
+            p{
+              @extend .fadeInRight;  
+            }
+        }
+        .item3 {
+            p{
+              @extend .fadeInRight;  
+            }
+        }
+    }
+    .header-ios{
+        .icon{
+            @extend .fadeInDown; 
+        }
+    }
+    .noPostedJobs,.smallMenu{
+         @extend .fadeIn;
+    }
+    .jobDetails{
+        p{
+            @extend .fadeInRight;  
+        } 
+    }
+}
+
