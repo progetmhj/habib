@@ -80,7 +80,7 @@ base64Image='assets/img/007.png';
   }
 
   // change Image
-base64Image2='assets/img/011.png';
+base64Image2='assets/img/g.png';
  accessGallery2(){
    this.camera.getPicture({
      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,

@@ -3,7 +3,7 @@ export interface iclent {
 
   email:string
 
-  Phone:string
+  phone:string
 
   username:string
 
@@ -16,4 +16,6 @@ export interface iclent {
   create_date:string
 
   fields:string
+
+  password:string
 }

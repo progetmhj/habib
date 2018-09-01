@@ -46,7 +46,7 @@
       </div>
       <ion-item>
         <ion-icon item-left name="ios-call" id="icon4"></ion-icon>
-        <ion-input type="num" placeholder="Phone Number" formControlName="input1"  name="phone"></ion-input>
+        <ion-input type="tel" placeholder="Phone Number" formControlName="input1"  name="phone"></ion-input>
       </ion-item>
       <ion-item no-lines *ngIf="( someForm.get('input1').hasError('required') ) && someForm.get('input1').touched">
       </ion-item>
@@ -58,6 +58,9 @@
     </ion-list>
 
   </div>
-  <button ion-button block color="color1" (click)="goTo('DiscoverWorkPage')"(click)="savecondidate()"[disabled]="!loginForm.form.valid" [disabled]="!someForm.valid">Sign Up</button>
+  <button ion-button block color="color1" (click)="goTo('DiscoverWorkPage')"(click)="signup()"[disabled]="!loginForm.form.valid" [disabled]="!someForm.valid" (click)="toest()"
+  >Sign Up</button>
+ <!-- **************************************************-->
+
 
 </ion-content>

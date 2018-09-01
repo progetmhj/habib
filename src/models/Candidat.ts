@@ -7,7 +7,7 @@ export  interface icandidat {
   language: string[],
   "file":string [],
   "education":string [],
-  "experince":string [],
+  "experience":string [],
   "training": string[],
   "_id":string,
   "first_name":string,

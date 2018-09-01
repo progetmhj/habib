@@ -17,7 +17,7 @@ url:string="http://localhost:3000";
   }
   getcandidate() {
     return new Promise(resolve => {
-      this.http.get(this.url+"all").subscribe(data => {
+      this.http.get(this.url+"/candidate/all").subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -44,7 +44,21 @@ url:string="http://localhost:3000";
     });
 
   }
-  savecondidate(data) {
+
+  savecondidate(id,education,first_name,last_name,birth_date,nationality,gender,country,yofexp,fields,level,language,experience,training,skills) {
+
+    console.log(id);
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url+'/candidate/find/'+id+'?education='+education+'&first_name='+first_name+'&last_name='+last_name+'&birth_date='+birth_date+'&nationality='+nationality
+        +'&gender='+gender+'&country='+country+'&yofexp='+yofexp+'&fields='+fields+'&level='+level+'&language='+language+'&experience='+experience+'&training='+training+'&skills='+skills)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  signup(data) {
 
     console.log(data);
     return new Promise((resolve, reject) => {
@@ -68,6 +82,16 @@ saveclient(data1) {
       });
   });
 }
+  profile(id){
+    return new Promise(resolve => {
+      this.http.get(this.url+"/candidate/finde/"+id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+
+  }
 
 
 }

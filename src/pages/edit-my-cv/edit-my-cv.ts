@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, PopoverController} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ApiProvider} from "../../providers/api/api";
+import { ToastController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -14,8 +15,11 @@ export class EditMyCvPage {
 
   public arr_val = [];
   public text_val;
+  id:any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, public formBuilder: FormBuilder, public api: ApiProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, public formBuilder: FormBuilder, public api: ApiProvider,public toastCtrl: ToastController) {
+    this.id=localStorage.getItem("id")
+    console.log(this.id)
     this.someForm = formBuilder.group({
       'input1': ['', Validators.compose([Validators.required])],
       'input2': ['', Validators.compose([Validators.required])],
@@ -36,14 +40,6 @@ export class EditMyCvPage {
   }
 
   savecondidate() {
-   /* console.log(this.someForm.get("input1").value)
-    console.log(this.someForm.get("input2").value)
-    console.log(this.someForm.get("input3").value)
-    console.log(this.someForm.get("input4").value)
-    console.log(this.someForm.get("input5").value)
-    console.log(this.someForm.get("input6").value)
-    console.log(this.someForm.get("input7").value)
-    console.log(this.someForm.get("input8").value)*/
     const data = {
       "first_name": (this.someForm.get("input1").value),
       "last_name": (this.someForm.get("input2").value ),
@@ -56,42 +52,17 @@ export class EditMyCvPage {
       "level" :(this.someForm.get("input9").value ),
       "education":(this.someForm.get("input10").value ),
       "yofexp":(this.someForm.get("input11").value ),
-     "experince":(this.someForm.get("input12").value ),
+     "experience":(this.someForm.get("input12").value ),
       "training":(this.someForm.get("input13").value ),
-      "extra":(this.someForm.get("input14").value ),
+      "skills":(this.someForm.get("input14").value ),
     }
-    this.api.savecondidate(data).then((result) => {
+    this.api.savecondidate(this.id,data.education,data.first_name,data.last_name,data.birth_date,data.nationality,data.gender,data.country,data.yofexp,data.fields,data.level,
+      data.language,data.experience,data.training,data.skills).then((result) => {
       console.log(result);
     }, (err) => {
       console.log(err);
     });
   }
-
-  skills = [
-    {
-      title: 'Computer',
-      items: [
-        {name: 'Html', modelVal: 'html'},
-        {name: 'Css', modelVal: 'css'},
-        {name: 'Php', modelVal: 'php'},
-        {name: 'Html', modelVal: 'html1'},
-        {name: 'Css', modelVal: 'css1'},
-        {name: 'Php', modelVal: 'php1'},
-      ]
-    },
-    {
-      title: 'Language',
-      items: [
-        {name: 'Franch', modelVal: 'franch'},
-        {name: 'Italy', modelVal: 'italy'},
-        {name: 'English', modelVal: 'english'},
-        {name: 'Franch', modelVal: 'franch1'},
-        {name: 'Italy', modelVal: 'italy1'},
-        {name: 'English', modelVal: 'english1'},
-      ]
-    },
-  ]
-
 
   // call search popover
   searchPopover(myEvent) {
@@ -124,4 +95,12 @@ export class EditMyCvPage {
   goTo(page) {
     this.navCtrl.push(page);
   }
+  toest(){
+    const toast = this.toastCtrl.create({
+      message: 'Your cv was successfully add',
+      duration: 3000
+    });
+    toast.present();
+  }
+
 }

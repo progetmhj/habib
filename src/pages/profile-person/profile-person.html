@@ -14,104 +14,82 @@
       <div class="imgBg" [ngStyle]="{'background-image':'url(' + base64Image + ')'}">
         <ion-icon name="ios-camera" (click)="accessGallery()"></ion-icon>
       </div>
-      <h5></h5>
-      <p>Tunisia</p>
-    <p>exemple@exemple.com</p>
+      <h5>{{this.first_name+this.last_name}}</h5>
+    <p>{{this.email}}</p>
   </div>
-  <div class="profileTabBar" >
-    <ion-segment [(ngModel)]="choose">
+
+    <ion-segment >
       <ion-segment-button value="cv">
         My CV
       </ion-segment-button>
-      <ion-segment-button value="contact">
-        My account
-      </ion-segment-button>
     </ion-segment>
-  </div>
-  <div  [ngSwitch]="choose">
+
+  <div>
     <!-- My CV -->
-    <div class="jobDetails"  *ngFor="let u of users">
+    <div class="jobDetails">
       <p>
         Education :
-        <span>{{u.education}}</span>
+        <span> {{this.education[0]}}</span>
       </p>
       <div >
         <p>
-       country :
-          <span>{{u.country}}</span>
+       Experience :
+          <span>{{this.experience}}</span>
         </p>
-        <ion-list>
-          <ion-item >
-            <ion-icon item-left></ion-icon>
-            <p></p>
-          </ion-item>
-
-        </ion-list>
-      </div>
-
-
-      <div class="desc">
-        <h5>Job Description :</h5>
-        <p class="parag">
-          It is a long established fact that a reader will be distracted by the readable.
-          It is a long established fact that a reader will be distracted by the readable.
+        <p>
+          Training :
+          <span>{{this.training}}</span>
         </p>
+        <p>
+          Skills :
+          <span>{{this.skills}}</span>
+        </p>
+        <ion-segment >
+          <ion-segment-button value="cv">
+            About you
+          </ion-segment-button>
+        </ion-segment>
+        <p>
+          Country :
+          <span>{{this.country}}</span>
+        </p>
+        <p>
+          Nationality :
+          <span>{{this.nationality}}</span>
+        </p>
+        <p>
+          Gender :
+          <span>{{this.gender}}</span>
+        </p>
+        <p>
+          birth date :
+          <span>{{this.birth_date}}</span>
+        </p>
+        <p>
+          Phone number :
+          <span>{{this.phone}}</span>
+        </p>
+        <p>
+          Level :
+          <span>{{this.level}}</span>
+        </p>
+        <p>
+          years of experiences :
+          <span>{{this.yofexp}}</span>
+        </p>
+        <p>
+          Fields :
+          <span>{{this.fields}}</span>
+        </p>
+
+
       </div>
-    </div>
-
-    <!-- contact Me -->
-    <div class="contactForm" *ngSwitchCase="'contact'" >
-     <!-- <ion-list>
-
-        &lt;!&ndash; your Phone Number &ndash;&gt;
-        <ion-item  >
-          <ion-icon item-left name="ios-call"></ion-icon>
-
-          <ion-icon item-right name="md-create" *ngIf="val!=1" (click)="enable(1,myPhoneNumber)"></ion-icon>
-          <ion-icon item-right name="md-checkmark" *ngIf="val==1"  (click)="disable()"></ion-icon>
-
-          <img src="assets/img/010.png" item-start/>
-
-          <ion-select [(ngModel)]="code" [disabled]="val == 1 ? false : true" >
-            <ion-option value="1"> +1 </ion-option>
-            <ion-option  value="2" >+2</ion-option>
-          </ion-select>
-
-          <ion-input #phoneNumber [disabled]="val == 1? false : true" type="num" value="91234 56789" placeholder="Phone Number"></ion-input>
-        </ion-item>
-
-        &lt;!&ndash; My email input item &ndash;&gt;
-        <ion-item>
-          <ion-icon item-left name="md-mail"></ion-icon>
-          <ion-icon item-right name="md-create" *ngIf="val!=2" (click)="enable(2,myEmail)"></ion-icon>
-          <ion-icon item-right name="md-checkmark" *ngIf="val==2"  (click)="disable()"></ion-icon>
-
-          <ion-input   type="email" #email [disabled]="val == 2 ? false : true" placeholder="Email" value="lela@gmail.com"></ion-input>
-        </ion-item>
-        &lt;!&ndash; My password input item &ndash;&gt;
-        <ion-item>
-          <ion-icon item-left name="md-lock"></ion-icon>
-          <ion-icon item-right name="md-create" *ngIf="val!=3" (click)="enable(3,myPassword)"></ion-icon>
-          <ion-icon item-right name="md-checkmark" *ngIf="val==3"  (click)="disable()"></ion-icon>
-
-          <ion-input type="password" #password [disabled]="val == 3 ? false : true" placeholder="password" value="14234565"></ion-input>
-        </ion-item>
-        &lt;!&ndash; My Loction input item &ndash;&gt;
-        <ion-item>
-          <ion-icon item-left name="ios-pin"></ion-icon>
-          <ion-icon item-right name="md-create" *ngIf="val!=4" (click)="enable(4,myLocation)"></ion-icon>
-          <ion-icon item-right name="md-checkmark" *ngIf="val==4"  (click)="disable()"></ion-icon>
-
-          <ion-input type="text" #location [disabled]="val == 4 ? false : true" placeholder="location" value="New York , USA"></ion-input>
-        </ion-item>
-
-      </ion-list>-->
     </div>
   </div>
 
-
 </ion-content>
+
+
 <ion-footer>
   <button block ion-button color="color1" *ngIf="choose=='cv'" (click)="goTo('EditMyCvPage')">EDIT MY CV</button>
-  <button block ion-button color="color1" *ngIf="choose=='contact'" (click)="disable()">SAVE</button>
 </ion-footer>

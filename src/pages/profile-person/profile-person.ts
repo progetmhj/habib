@@ -9,35 +9,33 @@ import {ApiProvider} from "../../providers/api/api";
   templateUrl: 'profile-person.html',
 })
 export class ProfilePersonPage {
+  id:any
+  email:any
+  first_name:any
+  last_name:any
+  education:any[]=[]
+  experience:any[]=[]
+  training:any[]=[]
+  skills:any[]=[]
+  nationality:any
+  gender:any
+  birth_date:any
+  phone:any
+  country:any
+  level:any
+  yofexp:any
+  fields:any
+
+
+
+
+
+
   constructor(private keyboard: Keyboard,public camera:Camera,public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,public api:ApiProvider) {
-
+    this.id=localStorage.getItem("id")
+    console.log(this.id)
+    this.profile()
   }
-  items=[
-    {
-      header:'Language',
-      content:[
-        {item:'English'},
-        {item:'Franch'},
-        {item:'Arabic'}
-      ]
-    },
-
-    {
-      header:'Skills',
-      content:[
-        {item:'Html,Php,ionic,angular,java,node js'},
-        {item:'photoshop,microsoft word'}
-      ]
-    },
-
-    {
-      header:'Courses',
-      content:[
-          { item:'Graphic Design Diploma'},
-          { item:'Web Design Diploma'}
-        ]
-    },
-  ]
 
   choose:string='cv';
    searchPopover(myEvent) {
@@ -64,17 +62,48 @@ export class ProfilePersonPage {
     this.val=0;
   }
 // change Image
+  private fileReader: FileReader;
 base64Image='assets/img/007.png';
  accessGallery(){
    this.camera.getPicture({
      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
      destinationType: this.camera.DestinationType.DATA_URL
     }).then((imageData) => {
+
       this.base64Image = 'data:image/jpeg;base64,'+imageData;
+
+
+
      }, (err) => {
       console.log(err);
     });
   }
+
+  profile(){
+    this.api.profile(this.id)
+      .then(data => {
+        console.log(data)
+        this.email=JSON.parse(JSON.stringify(data)).email
+        this.country=JSON.parse(JSON.stringify(data)).country
+        this.first_name=JSON.parse(JSON.stringify(data)).first_name
+        this.last_name=JSON.parse(JSON.stringify(data)).last_name
+        this.education=JSON.parse(JSON.stringify(data)).education
+        this.nationality=JSON.parse(JSON.stringify(data)).nationality
+        this.experience=JSON.parse(JSON.stringify(data)).experience
+        this.training=JSON.parse(JSON.stringify(data)).training
+        this.skills=JSON.parse(JSON.stringify(data)).skills
+        this.gender=JSON.parse(JSON.stringify(data)).gender
+        this.birth_date=JSON.parse(JSON.stringify(data)).birth_date
+        this.phone=JSON.parse(JSON.stringify(data)).phone
+        this.level=JSON.parse(JSON.stringify(data)).level
+        this.yofexp=JSON.parse(JSON.stringify(data)).yofexp
+        this.fields=JSON.parse(JSON.stringify(data)).fields
+
+        console.log(this.email)
+        console.log(this.country)
+      });
+  }
+
 
 }
 

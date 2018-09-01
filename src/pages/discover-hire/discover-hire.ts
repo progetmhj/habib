@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,PopoverController,ModalController } from 'ionic-angular';
+import {ApiProvider} from "../../providers/api/api";
 
 @IonicPage()
 @Component({
@@ -7,27 +8,19 @@ import { IonicPage, NavController, NavParams,PopoverController,ModalController }
   templateUrl: 'discover-hire.html',
 })
 export class DiscoverHirePage {
-
-  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController) {
+listcondi:any
+  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,public api:ApiProvider) {
+  this.ttcondi()
   }
+  ttcondi(){
+    this.api.getcandidate().then
+    (data=>{
+      console.log(data)
+      this.listcondi=data
 
-  items=[
-      {img:'assets/img/007.png',
-        name:'habib jrad',
-        facullty:'commerce 2015',
-        Skills:['Html','css','Graphic Design'],
-        experience:'2..5years',
-      },
-      {img:'assets/img/008.png',
-        name:'Farah zayeni',
-        facullty:'commerce 2015',
-        Skills:['Html','css','Graphic Design'],
-        experience:'5..10years',
-      },
+    })
 
-
-
-  ]
+  }
   // call popover Search
    searchPopover(myEvent) {
     let popover = this.popoverCtrl.create('SearchPopoverPage');

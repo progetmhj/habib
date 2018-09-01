@@ -13,43 +13,26 @@ export class SavedCvPage {
   }
 
 
-  items=[ 
+  items=[
       {img:'assets/img/005.png',
-        name:'Lela Edward',
-        facullty:'commerce 2015',
+        name:'farah',
+        facullty:'ESSTHS',
         Skills:['Html','css','Graphic Design'],
-        experience:'2years',
-      },  
+        experience:'5years',
+      },
       {img:'assets/img/007.png',
-        name:'Lela Edward',
-        facullty:'commerce 2015',
+        name:'habib',
+        facullty:'IsetCom',
         Skills:['Html','css','Graphic Design'],
         experience:'2years',
       },
       {img:'assets/img/008.png',
-        name:'Lela Edward',
-        facullty:'commerce 2015',
+        name:'sana',
+        facullty:'ISSAt',
         Skills:['Html','css','Graphic Design'],
         experience:'2years',
       },
-      {img:'assets/img/009.png',
-        name:'Lela Edward',
-        facullty:'commerce 2015',
-        Skills:['Html','css','Graphic Design'],
-        experience:'2years',
-      },
-      {img:'assets/img/005.png',
-        name:'Lela Edward',
-        facullty:'commerce 2015',
-        Skills:['Html','css','Graphic Design'],
-        experience:'2years',
-      },
-      {img:'assets/img/007.png',
-        name:'Lela Edward',
-        facullty:'commerce 2015',
-        Skills:['Html','css','Graphic Design'],
-        experience:'2years',
-      },
+
   ]
 
 // Function for delete item from list
@@ -59,7 +42,7 @@ removeItem(item,$event){
   let index = this.items.indexOf(item);
   if(index > -1){
     this.items.splice(index, 1);
-  } 
+  }
   if(this.items.length == 0){
     this.noItemsOfCV=true;
   }
@@ -69,26 +52,25 @@ noSavedCV(){
    if(this.items.length == 0){
     this.noItemsOfCV=true;
   }
-}  
+}
 // call popover Search
    searchPopover(myEvent) {
     let popover = this.popoverCtrl.create('SearchPopoverPage');
     popover.present({
-      ev: myEvent 
+      ev: myEvent
     });
   }
 // call Modal Function
  callEmailModal() {
     let modal = this.modalCtrl.create('EmailFormPage');
     modal.present();
-  } 
+  }
   stopPropagation($event){
     $event.stopPropagation();
   }
-  // go to another page 
+  // go to another page
   goTo(page){
     this.navCtrl.push(page);
   }
 
 }
- 

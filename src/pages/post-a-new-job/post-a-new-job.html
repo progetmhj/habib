@@ -31,7 +31,7 @@
           <ion-option value="networkEnginer" >Network Enginer</ion-option>
         </ion-select>
       </ion-item>
-    
+
       <!-- Work Location Select Item -->
       <ion-item class="itemWithIcon" [ngClass]="{'disappearLabel':WorkLocationModal!= undefined}" >
          <ion-icon name="ios-pin-outline" item-right ></ion-icon>
@@ -64,7 +64,7 @@
       </ion-item>
 
       <!-- Skills  checkboxs-->
-      <p class="labelStaked">Skills</p>
+      <!--<p class="labelStaked">Skills</p>
       <div class="skills" *ngFor="let x of skills">
         <p >{{x.title}}</p>
         <ion-grid >
@@ -77,7 +77,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-      </div>
+      </div>-->
 
       <!-- Salary Select Item -->
       <ion-item [ngClass]="{'disappearLabel':salaryModal!= undefined}" >
@@ -97,7 +97,7 @@
           <ion-option value="partTime" >Part Time</ion-option>
           <ion-option value="other" >Other</ion-option>
         </ion-select>
-      </ion-item> 
+      </ion-item>
 
       <!-- Type of contract Select Item -->
       <ion-item [ngClass]="{'disappearLabel':contractModal!= undefined}" >
@@ -108,15 +108,15 @@
           <ion-option value="freelance" >Freelance</ion-option>
           <ion-option value="other" >Other</ion-option>
         </ion-select>
-      </ion-item> 
+      </ion-item>
       <!--textarea Add More Information -->
       <ion-item>
         <ion-textarea rows="6" placeholder="More Information"></ion-textarea>
       </ion-item>
-    </ion-list> 
+    </ion-list>
   </div>
 
-    <!-- Check Box  List  
+    <!-- Check Box  List
   <ion-list *ngFor="let xx of checkboxList">
     <ion-list-header>
       {{xx.title}}

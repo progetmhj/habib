@@ -19,13 +19,13 @@
       <div class="imgBg" [ngStyle]="{'background-image':'url(' + base64Image + ')'}">
         <ion-icon name="ios-camera" (click)="accessGallery()"></ion-icon>
       </div>
-      <h5>Company Name</h5>
+      <h5>Proget</h5>
   </div>
   <div class="profileTabBar" >
     <ion-segment [(ngModel)]="choose">
-      <ion-segment-button value="jobs">
+     <!-- <ion-segment-button value="jobs">
         Posted Jobs
-      </ion-segment-button>
+      </ion-segment-button>-->
       <ion-segment-button value="about">
         About US
       </ion-segment-button>
@@ -38,7 +38,7 @@
       <h4>{{x.state}}</h4>
       <ion-grid>
         <ion-row >
-          <ion-col col-12 col-md-6 col-lg-4  col-xl-3 
+          <ion-col col-12 col-md-6 col-lg-4  col-xl-3
           (click)="goTo('DetailsWorkPage')" *ngFor="let y of x.info">
 
             <div class="jobContainer">
@@ -53,7 +53,7 @@
                   <ion-col col-2 >
                     <ion-icon name="md-more" float-right (click)="appearSmallMenu(y,true,$event)" ></ion-icon>
                   </ion-col>
-                </ion-row> 
+                </ion-row>
 
                 <ion-row>
                   <ion-col col-4>
@@ -72,13 +72,13 @@
               <p class="someDetails">
                 It is a long established fact that a reader will be distracted by the readable.
               </p>
-              <p class="applied" (click)="goTo('AppliedPeoplePage');stopPropagation($event)">NO., of applied people 
-                <span>{{y.peopleApplied}}</span>   
+              <p class="applied" (click)="goTo('AppliedPeoplePage');stopPropagation($event)">NO., of applied people
+                <span>{{y.peopleApplied}}</span>
               <p>
 
 
               <!-- Small menu appear when clicked more -->
-              <ion-list class="smallMenu" *ngIf="y.appear == true"> 
+              <ion-list class="smallMenu" *ngIf="y.appear == true">
                 <ion-item (click)="goTo('EditPostedJobPage');appearSmallMenu(y,false,$event)">
                   <p>Edit</p>
                 </ion-item>
@@ -100,11 +100,11 @@
       <p >No Jobs Posted</p>
     </div>
   </div>
-  
+
   <!-- About Company -->
   <ion-list class="aboutList" *ngSwitchCase="'about'">
     <ion-item class="item1">
-      <h4>Apps Design Company</h4>
+      <h4>Recrutment Company</h4>
       <ion-grid>
         <ion-row>
           <ion-col col-6>
@@ -116,7 +116,7 @@
           <ion-col col-6>
             <p>
               <span>Since : </span>
-              2005
+              2010
             </p>
           </ion-col>
         </ion-row>
@@ -128,15 +128,7 @@
       <h4>Our Service</h4>
       <p >
         <ion-icon ></ion-icon>
-        It is along established fact that a reader
-      </p>
-      <p >
-        <ion-icon ></ion-icon>
-        It is along established fact that a reader
-      </p>
-      <p >
-        <ion-icon ></ion-icon>
-        It is along established fact that a reader
+        recruitment in gulf countries
       </p>
     </ion-item>
 
@@ -150,12 +142,12 @@
 
       <p >
         <ion-icon name="ios-mail" ></ion-icon>
-         apps@info.it
+         proget-jobs@proget.com
       </p>
 
       <p >
         <ion-icon name="md-call" ></ion-icon>
-         +1 9838775367523
+        +1 9838775367523
       </p>
 
     </ion-item>
@@ -166,4 +158,4 @@
 <ion-footer  [ngClass]="{'addFooter':choose=='jobs'}">
   <ion-icon name="md-add" (click)="goTo('PostANewJobPage')" *ngIf="choose=='jobs'"></ion-icon>
   <button block ion-button color="color1" *ngIf="choose=='about'" (click)="goTo('EditCompanyProfilePage')">Edit Company Profile</button>
-</ion-footer> 
+</ion-footer>
